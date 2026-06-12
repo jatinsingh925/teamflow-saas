@@ -1,0 +1,26 @@
+# dependencies
+node_modules
+
+# env
+.env
+.env.*
+
+# logs
+logs
+*.log
+
+# mac
+.DS_Store
+
+# build
+dist
+build
+
+# coverage
+coverage
+
+# vscode
+.vscode
+
+# docker
+mongodb-data
