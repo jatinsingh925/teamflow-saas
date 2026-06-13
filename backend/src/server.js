@@ -1,9 +1,14 @@
-require("dotenv").config();
-
 const app = require("./app");
 
-const PORT = process.env.PORT || 5001;
+const env = require("./config/env");
+const connectDB = require("./config/database");
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+const startServer = async () => {
+  await connectDB();
+
+  app.listen(env.port, () => {
+    console.log(`Server running on port ${env.port}`);
+  });
+};
+
+startServer();
