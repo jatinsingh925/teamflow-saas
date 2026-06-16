@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const organizationRoutes = require("./modules/organizations/organization.routes");
 const userRoutes = require("./modules/users/user.routes");
 const errorHandler = require("./middlewares/errorHandler");
+const authRoutes = require("./modules/auth/auth.routes");
 const app = express();
 
 app.use(express.json());
@@ -18,6 +19,7 @@ app.get("/health", (req, res) => {
     message: "Backend is healthy",
   });
 });
+app.use("/api/v1/auth",authRoutes);
 
 app.use("/api/v1/organizations",organizationRoutes);
 
