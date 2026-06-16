@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const organizationRoutes = require("./modules/organizations/organization.routes");
+const userRoutes = require("./modules/users/user.routes");
 const errorHandler = require("./middlewares/errorHandler");
 const app = express();
 
@@ -18,10 +19,10 @@ app.get("/health", (req, res) => {
   });
 });
 
-app.use(
-  "/api/v1/organizations",
-  organizationRoutes
-);
+app.use("/api/v1/organizations",organizationRoutes);
+
+app.use("/api/v1/users", userRoutes);
+
 app.use(errorHandler);
 
 module.exports = app;
