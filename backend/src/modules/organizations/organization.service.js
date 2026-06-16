@@ -18,6 +18,16 @@ const createOrganization = async (organizationData) => {
   return organization;
 };
 
+const getOrganizationById = async (
+  organizationId
+) => {
+  return organizationRepository
+    .findOrganizationWithOwner(
+      organizationId
+    );
+};
+
 module.exports = {
   createOrganization,
+  getOrganizationById,
 };

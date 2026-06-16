@@ -11,9 +11,19 @@ const findOrganizationBySlug = async (slug) => {
 const findOrganizationById = async (organizationId) => {
   return Organization.findById(organizationId);
 };
-
+const findOrganizationWithOwner = async (
+  organizationId
+) => {
+  return Organization.findById(
+    organizationId
+  ).populate(
+    "ownerId",
+    "firstName lastName email"
+  );
+};
 module.exports = {
   createOrganization,
   findOrganizationBySlug,
   findOrganizationById,
+  findOrganizationWithOwner,
 };

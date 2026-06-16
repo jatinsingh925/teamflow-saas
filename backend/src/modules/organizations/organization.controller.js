@@ -22,6 +22,27 @@ const createOrganization = async (
   }
 };
 
+const getOrganizationById = async (
+  req,
+  res,
+  next
+) => {
+  try {
+    const organization =
+      await organizationService.getOrganizationById(
+        req.params.id
+      );
+
+    return res.json({
+      success: true,
+      data: organization,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createOrganization,
+  getOrganizationById,
 };

@@ -11,4 +11,9 @@ router.post(
   organizationController.createOrganization
 );
 
+router.get(
+  "/:id",
+  organizationController.getOrganizationById
+);
+
 module.exports = router;
